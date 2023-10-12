@@ -1,0 +1,7 @@
+.c-chat--messages {
+  .message {
+    border-radius: 4px;
+    padding: 0.3rem;
+    width: fit-content;
+  }
+}

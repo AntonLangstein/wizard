@@ -1,0 +1,16 @@
+@import url("defaults/import.css");
+@import url("components/import.css");
+@import url("objects/import.css");
+@import url("utilities/import.css");
+
+:root {
+  --primary: rgb(157, 216, 46);
+  --secondary: rgb(148, 148, 148);
+  --black: rgb(37, 37, 37);
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.app {
+  position: relative;
+  height: 100vh;
+}
