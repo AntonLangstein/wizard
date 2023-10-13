@@ -149,6 +149,7 @@ io.on("connection", (socket) => {
       name: data.name,
       color: colors[rndNum],
       isAdmin: false,
+      playedCard: "",
     };
     users.push(user);
     users[0].isAdmin = true;
@@ -172,6 +173,10 @@ io.on("connection", (socket) => {
   socket.on("set_next_round", () => {
     round++;
     setCards();
+  });
+
+  socket.on("played_card", (data) => {
+    io.emit("send_played_card", data);
   });
 
   // get message an send it to all users

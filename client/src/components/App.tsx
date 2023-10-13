@@ -59,6 +59,7 @@ function App() {
                 name={name}
                 user={user}
                 users={users}
+                setUsers={setUsers}
                 socket={socket}
                 identifier={id}
               ></Game>
