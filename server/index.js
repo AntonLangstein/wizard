@@ -102,5 +102,6 @@ const createRndNum = (max) => {
 };
 
 io.on("connection", (socket) => {
+  io.emit("connection", "Bin da");
   socket.on("disconnect", () => {});
 });
