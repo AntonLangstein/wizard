@@ -1,0 +1,12 @@
+.o-order {
+  &--md--fist {
+    @include media-breakpoint-down(md) {
+      order: 1;
+    }
+  }
+  &--md--second {
+    @include media-breakpoint-down(md) {
+      order: 2;
+    }
+  }
+}

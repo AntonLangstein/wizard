@@ -1,0 +1,5 @@
+@mixin owl($size) {
+  > * + * {
+    margin-top: rem-calc($size);
+  }
+}

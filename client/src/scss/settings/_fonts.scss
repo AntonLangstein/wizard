@@ -1,0 +1,36 @@
+$font-family-sans-serif:  'Open Sans', sans !default;
+$font-size-base: 1.125rem; //18px
+
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-semibold: 600;
+$font-weight-bold: 700;
+$font-weight-base: $font-weight-normal;
+
+$line-height-base: 1.875;
+
+$h1-font-size: rem-calc(42);
+$h2-font-size: rem-calc(28);
+$h3-font-size: rem-calc(24);
+
+$h1-font-size-small: rem-calc(28);
+$h2-font-size-small: rem-calc(28);
+$h3-font-size-small: rem-calc(24);
+
+$btn-font-size: rem-calc(16);
+
+
+$text-font-size: rem-calc(16);
+
+$headings-margin-bottom:  $spacer * 1.5;
+$headings-font-family: 'Open Sans', sans;
+
+$input-btn-font-size: $font-size-base;
+$input-btn-line-height: $line-height-base;
+
+$small-font-size: rem-calc(14);
+
+$font-family-base: $font-family-sans-serif;
+
+
+

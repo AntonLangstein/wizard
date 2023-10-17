@@ -1,0 +1,90 @@
+@mixin text-normal() {
+  font-size: rem-calc(18);
+  line-height: rem-calc(30);
+}
+
+//@mixin link() {
+//  font-size: rem-calc(18);
+//  line-height: rem-calc(30);
+//
+//  &:hover, &:active {
+//    font-weight: $font-weight-semibold;
+//  }
+//}
+
+@mixin btn-text() {
+  font-size: rem-calc(16);
+  line-height: rem-calc(20);
+}
+
+@mixin tag-font() {
+  font-size: rem-calc(12);
+  line-height: rem-calc(17);
+}
+
+@mixin font-pagination() {
+  font-size: rem-calc(16);
+  line-height: rem-calc(22);
+  font-weight: $font-weight-normal;
+
+  &--semibold{
+    font-size: rem-calc(16);
+    line-height: rem-calc(22);
+    font-weight: $font-weight-semibold;
+  }
+}
+
+@mixin font-bold() {
+  font-size: rem-calc(16);
+  line-height: rem-calc(22);
+  font-weight: $font-weight-bold;
+}
+
+@mixin font-normal-bold() {
+  font-size: rem-calc(18);
+  line-height: rem-calc(18);
+  font-weight: $font-weight-bold;
+}
+
+@mixin font-small($font-weight: false) {
+  font-size: rem-calc(14);
+  line-height: rem-calc(19);
+
+  @if ($font-weight == 'bold') {
+    font-weight: $font-weight-bold;
+  }
+}
+@mixin font-mini($font-weight: false) {
+  font-size: rem-calc(9);
+  line-height: rem-calc(12);
+
+}
+
+@mixin font-caption() {
+  font-size: rem-calc(20);
+  line-height: rem-calc(33);
+  font-weight: $font-weight-semibold;
+}
+
+@mixin font-caption-small($font-weight: 'semibold') {
+  font-size: rem-calc(16);
+  line-height: rem-calc(22);
+  font-weight: $font-weight-semibold;
+
+  @if ($font-weight == 'bold') {
+    font-weight: $font-weight-bold;
+  }
+}
+
+
+@mixin font-teaser() {
+  font-size: rem-calc(20);
+  line-height: rem-calc(32);
+}
+
+@mixin font-teaser-semibold() {
+  font-size: rem-calc(20);
+  line-height: rem-calc(33);
+  font-weight: $font-weight-semibold;
+}
+

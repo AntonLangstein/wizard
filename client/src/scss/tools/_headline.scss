@@ -1,0 +1,49 @@
+@mixin headline-primary($size:false){
+  font-size: $h1-font-size;
+  font-weight: $font-weight-bold;
+  line-height: rem-calc(35);
+  color: $black;
+
+  @include media-breakpoint-down(md){
+    font-size: $h1-font-size-small;
+  }
+
+  @if ($size == 'small'){
+    font-size: rem-calc(28);
+    letter-spacing: rem-calc(0.28);
+  }
+
+  @if ($size == 'xsmall'){
+    font-size: rem-calc(26);
+    letter-spacing: rem-calc(0);
+	  line-height: rem-calc(35);
+	  font-weight: $font-weight-normal;
+
+  }
+
+}
+
+@mixin headline-secondary( $font-weight:false, $font-size: false){
+  font-size: $h2-font-size;
+  font-weight: $font-weight-bold;
+  line-height: rem-calc(35);
+  letter-spacing: rem-calc(0.28);
+  color: $black;
+
+  @if ($font-weight == 'semibold'){
+    font-weight: $font-weight-semibold;
+  }
+  @if ($font-size == 'small'){
+    font-size: $h3-font-size;
+    line-height: rem-calc(30);
+    letter-spacing: 0;
+  }
+
+}
+
+@mixin headline-tertiary(){
+  font-size: $h3-font-size;
+  font-weight: $font-weight-semibold;
+  line-height: rem-calc(30);
+	color: $black;
+}

@@ -1,0 +1,15 @@
+.o-icon {
+  font-size: rem-calc(24);
+  color: $black;
+  transition: .3s;
+
+  &:hover {
+    color: $primary;
+  }
+
+  &--arrow {
+    &--right {
+      @extend .o-icon;
+    }
+  }
+}

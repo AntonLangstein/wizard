@@ -1,0 +1,58 @@
+$sizes: (10:12, 12: 14, 14: 16, 15: 18, 16:22, 18:24, 20:24, 22:26, 26:30, 28:31, 35:38, 40:44, 45:48, 50:54);
+
+.o-text {
+  @each $size, $line-height in $sizes {
+    &--#{$size} {
+      font-size: rem-calc($size);
+      line-height: rem-calc($line-height);
+    }
+  }
+
+  &--underline {
+    position: relative;
+    display: inline-flex;
+    transition: .2s;
+
+    &:after {
+      content: "";
+      height: rem-calc(2);
+      position: absolute;
+      bottom: rem-calc(-5);
+      background-color: $primary;
+      display: inline-block;
+      width: 100%;
+      left: 0;
+    }
+
+    &--hover {
+      position: relative;
+      display: inline-flex;
+
+      &:after {
+        content: "";
+        height: rem-calc(2);
+        position: absolute;
+        bottom: rem-calc(-5);
+        background-color: $primary;
+        display: inline-block;
+        width: 0;
+        right: 0;
+        transition: .2s;
+      }
+
+      &:hover {
+        &:after {
+          content: "";
+          height: rem-calc(2);
+          position: absolute;
+          bottom: rem-calc(-5);
+          background-color: $primary;
+          display: inline-block;
+          width: 100%;
+          right: 0;
+        }
+      }
+    }
+  }
+
+}

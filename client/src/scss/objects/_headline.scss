@@ -1,0 +1,51 @@
+.o-headline {
+
+  &--primary {
+    @include headline-primary();
+
+    &--small {
+      @include headline-primary('small');
+    }
+
+    &--xsmall {
+      @include headline-primary('xsmall');
+    }
+
+  }
+
+  &--secondary {
+    @include headline-secondary();
+
+    &--semibold {
+      @include headline-secondary('semibold');
+    }
+
+    &--small {
+      @include headline-secondary('semibold', 'small');
+    }
+
+	  &--medium{
+		  @include headline-secondary();
+		  font-size: rem-calc(28);
+	  }
+  }
+
+  &--tertiary {
+    @include headline-tertiary();
+
+    &__semibold {
+      @include headline-tertiary();
+      font-weight: $font-weight-semibold;
+    }
+
+    &__tabs {
+      line-height: rem-calc(35);
+      letter-spacing: rem-calc(0.24);
+      font-weight: $font-weight-bold;
+      @include media-breakpoint-down(sm){
+        font-size: rem-calc(13);
+      }
+    }
+  }
+
+}

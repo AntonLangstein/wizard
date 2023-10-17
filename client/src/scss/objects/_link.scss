@@ -1,0 +1,38 @@
+.o-link {
+  @include link();
+
+  &--uppercase {
+    @include link();
+    text-transform: uppercase;
+  }
+
+  &--icon-left {
+    @include link($dark-gray, $dark-gray, true, "icon-benutzer");
+
+  }
+
+  &--default {
+    @include link-default();
+  }
+
+  &--small {
+    @include link-small();
+  }
+
+  &--bold-hover {
+    @include link();
+    &:after {
+      content: attr(name);
+      display: block;
+      font-weight: bold;
+      visibility: hidden;
+      overflow: hidden;
+      height: 0px;
+    }
+  }
+
+  &__active {
+    font-weight: $font-weight-semibold;
+  }
+
+}

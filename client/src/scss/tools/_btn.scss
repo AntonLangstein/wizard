@@ -1,0 +1,47 @@
+@mixin btn($bg) {
+  display: inline;
+  cursor: pointer !important;
+  font-size: $btn-font-size !important;
+  line-height: $btn-line-height !important;
+  border-radius: 0;
+  padding: $btn-padding-y $btn-padding-x;
+  text-transform: uppercase;
+  transition: .2s ease-in-out;
+  font-weight: 600 !important;
+  
+  i {
+    color: $white;
+  }
+  
+  @if ($bg == "primary") {
+    border: solid 1px $primary !important;
+    background-color: $primary !important;
+    color: $white !important;
+    width: fit-content;
+    
+    &:hover, &:active {
+      border: solid 1px $black !important;
+      background-color: $black !important;
+      color: $white !important;
+    }
+  }
+  
+  @if ($bg == "inactive") {
+    border: solid 1px $white !important;
+    background-color: $white !important;
+    color: $gray !important;
+    width: fit-content;
+    
+    &:hover, &:active {
+      border: solid 1px $black !important;
+      background-color: $black !important;
+      color: $white !important;
+    }
+  }
+
+
+
+
+
+}
+

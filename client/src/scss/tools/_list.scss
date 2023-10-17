@@ -1,0 +1,51 @@
+@mixin list($list-style) {
+  text-decoration: none;
+  list-style-type: none;
+  @if $list-style == "square" {
+
+    list-style-type: square;
+  }
+
+  @if $list-style == "small-dots" {
+    list-style-type: none;
+    padding-left: 0;
+
+    li{
+      padding-left: 20px;
+      position: relative;
+
+    }
+    li:before{
+      content:"";
+      height: rem-calc(4);
+      width: rem-calc(4);
+      border-radius: 50%;
+      background-color: $dark-gray;
+      display: inline-block;
+      position: absolute;
+      left: 0;
+      top: calc(1.5em / 2);
+    }
+  }
+
+  @if $list-style == "none" {
+    list-style-type: none;
+	  padding-left: 0;
+  }
+
+  @if $list-style == "check"{
+	  padding-left: rem-calc(10);
+	  & li{
+		  position: relative;
+		  padding-left: rem-calc(20);
+		  @include icon('icon-check', false);
+		  & + li{
+			  margin-top: rem-calc(15);
+		  }
+		  &:before{
+			  position: absolute;
+			  left: rem-calc(-10);
+		  }
+    }
+  }
+}

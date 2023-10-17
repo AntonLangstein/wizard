@@ -1,0 +1,7 @@
+.o-button{
+    // @include button("none");
+
+    &--primary {
+        @include button("primary");
+    }
+}

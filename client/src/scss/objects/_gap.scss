@@ -1,0 +1,21 @@
+$sizes: [5, 10, 15, 20, 25, 30, 35, 40, 45, 50];
+
+.o-gap {
+  @each $size in $sizes {
+    &--#{$size} {
+      gap: rem-calc($size);
+    }
+  }
+
+  @each $size in $sizes {
+    &__row--#{$size} {
+      row-gap: rem-calc($size);
+    }
+  }
+
+  @each $size in $sizes {
+    &__column--#{$size} {
+      column-gap: rem-calc($size);
+    }
+  }
+}

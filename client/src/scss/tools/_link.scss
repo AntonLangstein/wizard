@@ -1,0 +1,47 @@
+@mixin link(
+  $color: $primary,
+  $hover-color: $dark-gray,
+  $icon: false,
+  $icon-name: false,
+  $hover: true,
+  $size: 20px,
+) {
+  font-size: rem-calc(16);
+  line-height: $line-height-base;
+  text-decoration: none;
+  display: inline;
+  color: $color;
+  cursor: pointer;
+  text-align: center;
+  white-space: nowrap;
+  font-weight: $font-weight-semibold;
+
+  @if $hover == true {
+    &:hover {
+      color: $hover-color;
+    }
+  }
+}
+
+@mixin link-small() {
+  font-size: rem-calc(14);
+  line-height: rem-calc(22);
+
+  &:hover {
+    font-weight: $font-weight-semibold;
+    color: $dark-gray;
+  }
+}
+
+@mixin link-default() {
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  text-decoration: none;
+  font-weight: $font-weight-semibold;
+
+  &:hover {
+    color: $primary;
+    font-weight: $font-weight-semibold;
+  }
+}
+

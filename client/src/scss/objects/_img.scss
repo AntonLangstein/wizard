@@ -1,0 +1,66 @@
+.o-img {
+  &--header-logo {
+    --maxWidth: 287px;
+    max-width: var(--maxWidth) !important;
+    transition: .3s;
+
+    @include media-breakpoint-down(lg) {
+      --maxWidth: 178px;
+      max-width: var(--maxWidth) !important;
+
+    }
+  }
+
+  &--cover {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &--contain {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  &--card {
+    aspect-ratio: 383 /255;
+    object-fit: cover;
+  }
+
+  &--bg {
+    background-repeat: no-repeat;
+
+    &--h-100 {
+      background-repeat: no-repeat;
+      background-size: auto 100%;
+    }
+
+    &--right {
+      background-repeat: no-repeat;
+      background-position: right;
+    }
+
+    &--cover {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    &--none {
+      background-image: unset;
+
+      &--lg {
+        @include media-breakpoint-down(lg) {
+          background-image: unset !important;
+        }
+      }
+    }
+  }
+  &--bubble {
+    border-radius: 50%;
+    img {
+      @include cover();
+    }
+  }
+}

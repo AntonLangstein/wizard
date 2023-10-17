@@ -1,0 +1,31 @@
+$btn-padding-y:               0.65rem;
+$btn-padding-x:               1rem;
+$btn-padding-y-small:         0.1875rem;
+$btn-padding-x-small:         0.3125rem;
+$btn-font-family:             $font-family-sans-serif;
+$btn-font-size:               1rem;
+$btn-font-size-small:         0.75rem;
+$btn-line-height:             1.375rem;
+$btn-line-height-small:       1.0625rem;
+$btn-white-space:             null; // Set to `nowrap` to prevent text wrapping
+
+$btn-padding-y-sm:            1.4rem;
+$btn-padding-x-sm:            1.8rem;
+$btn-font-size-sm:            $btn-font-size;
+
+$input-btn-padding-y-lg:      1.4rem;
+$input-btn-padding-x-lg:      1.8rem;
+$input-btn-font-size-lg:      $btn-font-size;
+
+$btn-padding-y-lg:            $input-btn-padding-y-lg;
+$btn-padding-x-lg:            $input-btn-padding-x-lg;
+$btn-font-size-lg:            $input-btn-font-size-lg;
+$input-btn-font-family:       $font-family-sans-serif;
+
+$btn-border-width:            1px;
+
+$btn-font-weight:             $font-weight-semibold;
+
+$btn-link-hover-color:        $white;
+$btn-border-radius-small:     2px;
+$btn-border-radius:           3px;

@@ -1,0 +1,91 @@
+@mixin field() {
+  letter-spacing: rem-calc(0.14);
+  line-height: rem-calc(19);
+  font-size: rem-calc(14);
+  border: rem-calc(1) $gray solid;
+  border-radius: rem-calc(3);
+  padding: rem-calc(12);
+  color: $dark-gray;
+  box-sizing: border-box;
+  outline: none;
+  &::placeholder {
+    color: $gray;
+    line-height: rem-calc(19);
+    font-size: rem-calc(14);
+  }
+  &:active,
+  &:focus,
+  &:focus-visible {
+    border: rem-calc(1) $gray solid;
+    outline: none;
+  }
+}
+
+@mixin checkbox() {
+  appearance: none;
+  background-color: $white;
+  border: 1px solid $dark-gray;
+  padding: rem-calc(5);
+  display: inline-block;
+  position: relative;
+  outline: none;
+  &:active,
+  &:checked:active,
+  &:checked {
+    background-color: $primary;
+    padding: rem-calc(6);
+    border: none;
+    color: $white;
+  }
+  &:checked:after {
+    content: '\2714';
+    font-size: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+  }
+}
+
+@mixin select() {
+  @include field();
+  appearance: none;
+  min-width: rem-calc(180);
+  //background-image: url("../../../static/src/images/icons/#{$icon-down}");
+  background-repeat: no-repeat;
+  background-size: rem-calc(10);
+  background-position: 90% center;
+  background-color: transparent;
+  font: -moz-pull-down-menu;
+  padding-right: rem-calc(50);
+  font-size: rem-calc(18);
+
+  &:focus {
+    //background-image: url("../../../static/src/images/icons/#{$icon-up}");
+  }
+}
+
+@mixin textarea() {
+  @include field();
+  min-width: rem-calc(250);
+  @include media-breakpoint-down(xl) {
+    min-width: rem-calc(100);
+  }
+}
+
+@mixin number() {
+  letter-spacing: rem-calc(0.14);
+  line-height: rem-calc(19);
+  font-size: rem-calc(14);
+  border: rem-calc(1) $gray solid;
+  padding: rem-calc(12) 0;
+  color: $dark-gray;
+  box-sizing: border-box;
+  outline: none;
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+  }
+}

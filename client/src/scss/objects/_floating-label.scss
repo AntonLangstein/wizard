@@ -1,0 +1,32 @@
+.o-floating-label {
+	position: relative;
+	& input::placeholder,
+	& label {
+		font-size: rem-calc(12);
+		line-height: rem-calc(17);
+		letter-spacing: rem-calc(.12);
+		user-select: none;
+	}
+	& input::placeholder {
+		color: transparent;
+	}
+	& label {
+		position: absolute;
+		top: rem-calc(16);
+		left: rem-calc(13);
+		opacity: 1;
+		transition: transform .25s ease-in-out;
+	}
+	& input {
+		&:not(:placeholder-shown) ~ label,
+		&:focus ~ label{
+			opacity: 1;
+			transform: scale(0.95) translateY(rem-calc(-30)) translateX(rem-calc(-2));
+		}
+		&:focus {
+			&::placeholder {
+				color: transparent;
+			}
+		}
+	}
+}

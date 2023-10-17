@@ -102,6 +102,38 @@ const createRndNum = (max) => {
 };
 
 io.on("connection", (socket) => {
-  io.emit("connection", "Bin da");
-  socket.on("disconnect", () => {});
+  socket.on("send_user_data_to_server", (data) => {
+    if (
+      data.userName === null ||
+      data.userName === undefined ||
+      data.room === null ||
+      data.room === undefined
+    ) {
+      io.to(socket.id).emit("user:unknown", "no username or room");
+      socket.disconnect();
+    }
+
+    socket.join(data.room);
+
+    let user = {
+      id: socket.id,
+      name: data.userName,
+      room: data.room,
+    };
+
+    if (!users[data.room]) users[data.room] = [];
+    users[data.room].push(user);
+
+    io.to(data.room).emit("send_users_to_client", users[data.room]);
+  });
+
+  socket.on("disconnect", () => {
+    let currentRoom;
+    Object.keys(users).forEach((key, index) => {
+      users[key].forEach((user) => (currentRoom = user.room));
+      users[key] = users[key].filter((user) => user.id != socket.id);
+    }, users);
+
+    io.to(currentRoom).emit("send_users_to_client", users[currentRoom]);
+  });
 });

@@ -1,0 +1,43 @@
+// Color variables
+$primary: #8519afa9;
+$primary-l: #be1c28;
+$secondary: #B2B1B1;
+$secondary-l: #444141;
+
+$white: #fff;
+$black: #21292F;
+
+$light-gray: #F4F4F4;
+$gray: #bebebe;
+$dark-gray: #575757;
+
+//Opacities
+$shadow-color-primary: rgba(0, 0, 0, 0.16);
+
+$gradient-primary: linear-gradient(90deg, $primary 0%, $black 150%); 
+
+
+//Theming
+$link-color: $primary;
+$link-hover-color: $black;
+
+$btn-link-color: $dark-gray;
+$btn-link-hover-color: $dark-gray;
+
+$nav-link-color: $dark-gray;
+$nav-link-hover-color: $dark-gray;
+
+$body-background: red;
+
+//
+$theme-colors: (
+        "primary": $primary,
+        "primary-l": $primary-l,
+        "secondary": $secondary,
+        "secondary-l": $secondary-l,
+        "black": $black,
+        "white": $white,
+        "light-gray": $light-gray,
+        "dark-gray": $dark-gray,
+        "gray": $gray,
+);

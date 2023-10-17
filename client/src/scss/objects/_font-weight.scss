@@ -1,0 +1,9 @@
+$sizes: (300, 400, 500, 600, 700);
+
+.o-font-weight {
+  @each $size in $sizes {
+    &--#{$size}{
+      font-weight: $size;
+    }
+  }
+}
