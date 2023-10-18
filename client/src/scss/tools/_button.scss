@@ -1,5 +1,5 @@
 @mixin button($bg) {
-    display: inline;
+    display: inline-block;
     cursor: pointer !important;
     font-size: $btn-font-size !important;
     line-height: $btn-line-height !important;
@@ -22,6 +22,20 @@
       
       &:hover, &:active {
         border: solid 1px $black !important;
+        background-color: $black !important;
+        color: $white !important;
+      }
+    }
+    
+    @if ($bg == "user") {
+      padding: rem-calc(5) rem-calc(10);
+      display: flex;
+      width: fit-content;
+      border-radius: rem-calc(3);
+      border: solid 1px $black;
+      text-transform: none;
+      
+      &:hover, &:active {
         background-color: $black !important;
         color: $white !important;
       }

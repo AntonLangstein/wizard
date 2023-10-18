@@ -28,10 +28,6 @@ function App() {
     <>
       <main>
         <Container>
-          <div className="d-flex gap-2">
-            <Link to="/">Home</Link>
-            <Link to="/room">Room</Link>
-          </div>
           <Routes>
             <Route path="/" element={<Home props={{ socket }} />}></Route>
             <Route path="/room" element={<Room props={{ socket }} />}></Route>

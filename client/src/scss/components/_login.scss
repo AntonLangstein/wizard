@@ -1,0 +1,16 @@
+.c-login {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: rem-calc(100);
+
+    &--form {
+        background-color: $secondary;
+        display: flex;
+        flex-direction: column;
+        padding: rem-calc(40);
+        border-radius: rem-calc(10);
+        gap: rem-calc(10);
+    }
+}

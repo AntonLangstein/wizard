@@ -22,17 +22,20 @@ server.listen(process.env.PORT || 3001, () => {
 // ----------------------------------------------------------------
 
 let users = [];
-const maxUsers = 6;
 let isRunning = false;
+
 let round = 4;
-let colors = [
+let colors = [];
+let baseColors = [
   { bg: "darkcyan", font: "black" },
-  { bg: "crimson", font: "black" },
+  { bg: "LightCoral", font: "black" },
   { bg: "orange", font: "black" },
   { bg: "purple", font: "white" },
   { bg: "aquamarine", font: "black" },
   { bg: "dodgerblue", font: "black" },
 ];
+
+const maxRoomUsers = baseColors.length > 6 ? 6 : baseColors.length;
 let cards = [
   "b01",
   "b02",
@@ -101,39 +104,87 @@ const createRndNum = (max) => {
   return Math.floor(Math.random() * max);
 };
 
+removeUserFromList = (socket) => {
+  let currentRoom;
+  Object.keys(users).forEach((key, index) => {
+    // set current room and add color back to color list
+    users[key] = users[key].filter((user) => {
+      if (user.id === socket.id) {
+        currentRoom = user.room;
+        colors[currentRoom].push(user.colors);
+        return false;
+      }
+      return true;
+    });
+  }, users);
+
+  io.to(currentRoom).emit("send_users_to_client", users[currentRoom]);
+};
+
+// ----------------------------------------------------------------
+
 io.on("connection", (socket) => {
+  // send the list of users to the client
   socket.on("send_user_data_to_server", (data) => {
+    // error handeling
     if (
       data.userName === null ||
       data.userName === undefined ||
       data.room === null ||
       data.room === undefined
     ) {
-      io.to(socket.id).emit("user:unknown", "no username or room");
+      io.to(socket.id).emit("user:error", "no username or room");
       socket.disconnect();
+      return;
+    }
+    if (users[data.room]) {
+      if (users[data.room].length >= maxRoomUsers) {
+        io.to(socket.id).emit("user:error", "room is full");
+        socket.disconnect();
+        return;
+      }
     }
 
+    // joining Room
     socket.join(data.room);
+
+    // set User color
+    if (!colors[data.room]) colors[data.room] = [...baseColors];
+    rndNum = createRndNum(colors[data.room].length);
 
     let user = {
       id: socket.id,
       name: data.userName,
       room: data.room,
+      isAdmin: false,
+      colors: colors[data.room][rndNum],
     };
 
+    // remove color from color list
+    colors[data.room].splice(rndNum, 1);
+
+    // pushing user in room list
     if (!users[data.room]) users[data.room] = [];
     users[data.room].push(user);
 
+    // check Admin
+    let hasAdmin = false;
+    users[data.room].forEach((user) => {
+      if (user.isAdmin) hasAdmin = true;
+    });
+    if (!hasAdmin) users[data.room][0].isAdmin = true;
+
+    // sending users
     io.to(data.room).emit("send_users_to_client", users[data.room]);
   });
 
-  socket.on("disconnect", () => {
-    let currentRoom;
-    Object.keys(users).forEach((key, index) => {
-      users[key].forEach((user) => (currentRoom = user.room));
-      users[key] = users[key].filter((user) => user.id != socket.id);
-    }, users);
+  // trigger if user leaves
+  socket.on("user:leave", () => {
+    removeUserFromList(socket);
+    socket.disconnect();
+  });
 
-    io.to(currentRoom).emit("send_users_to_client", users[currentRoom]);
+  socket.on("disconnect", () => {
+    removeUserFromList(socket);
   });
 });

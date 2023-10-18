@@ -4,4 +4,8 @@
     &--primary {
         @include button("primary");
     }
+
+    &--user {
+        @include button("user");
+    }
 }
