@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import UserList from "../components/userList";
+import Game from "../components/Game";
 
 type User = {
   id: string;
@@ -73,6 +73,7 @@ export default function Room({ props }) {
 
   return (
     <>
+      {/* top bar */}
       <div className="d-flex justify-content-between gap-2">
         <Link to="/">
           <div className="o-button--primary" onClick={() => handleUserLeave()}>
@@ -92,8 +93,7 @@ export default function Room({ props }) {
         {user && <h2 style={{ color: user.colors.bg }}>{user.name}</h2>}
       </div>
 
-      {/* render user */}
-      <UserList users={users} />
+      <Game users={users} user={user} socket={socket} />
     </>
   );
 }

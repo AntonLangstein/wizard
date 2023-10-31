@@ -1,0 +1,26 @@
+.c-game {
+    display: flex;
+    flex-direction: column;
+    gap: rem-calc(20);
+
+    &--board {
+        border-radius: rem-calc(10);
+        padding: rem-calc(10);
+        background-color: $primary;
+        height: rem-calc(400);
+
+        .played-cards {
+            position: relative;
+
+            figure {
+                position: absolute;
+            }
+        }
+    }
+
+    &--own-deck {
+        border-radius: rem-calc(10);
+        padding: rem-calc(10);
+
+    }
+}

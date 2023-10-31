@@ -26,7 +26,7 @@ let isRunning = false;
 
 let round = 4;
 let colors = [];
-let baseColors = [
+const baseColors = [
   { bg: "darkcyan", font: "black" },
   { bg: "LightCoral", font: "black" },
   { bg: "orange", font: "black" },
@@ -137,6 +137,7 @@ io.on("connection", (socket) => {
       socket.disconnect();
       return;
     }
+    // if room full
     if (users[data.room]) {
       if (users[data.room].length >= maxRoomUsers) {
         io.to(socket.id).emit("user:error", "room is full");

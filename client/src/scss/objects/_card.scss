@@ -1,0 +1,12 @@
+.o-card {
+    &--user {
+        width: rem-calc(200);
+        aspect-ratio: 3/5;
+        padding: rem-calc(10);
+        border-radius: rem-calc(10);
+
+        &--name {
+            font-weight: 500;
+        }
+    }
+}
